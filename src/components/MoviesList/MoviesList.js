@@ -6,10 +6,13 @@ import {useDispatch, useSelector} from "react-redux";
 import {fetchGenres, fetchMovies} from "../../redux/actions";
 import {fetchPages} from "../../redux/actions/actions";
 import Paging from "../Paging/Paging";
-
+import {Link, Route, Switch} from "react-router-dom";
+import MoviesListCard from "../MoviesListCard/MoviesListCard";
 
 
 export default function MoviesList() {
+
+
     const state = useSelector(state => {
         const {moviesReducer} = state;
         return moviesReducer;
@@ -35,6 +38,9 @@ export default function MoviesList() {
             <div className={'wrapper movie-list'}>
                 {movies.map(value => <MovieInfo key={value.id} movie={value}/>)}
             </div>
+            <Route exact path="/movie/:id" render={(props) => {
+                return <MoviesListCard {...props}/>
+            }}/>
             <Paging/>
         </div>
     );

@@ -1,10 +1,9 @@
 import UserInfo from "../UserInfo/UserInfo";
+import "./Header.css";
 
 export default function Header() {
   return (
-    <div>
-        select genre <br/>
-        style switcher <br/>
+    <div className={'header'}>
         <UserInfo/>
     </div>
   );

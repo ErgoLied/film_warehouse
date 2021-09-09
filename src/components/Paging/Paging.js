@@ -4,7 +4,7 @@ import {useState} from "react";
 import {useHistory, useLocation} from "react-router-dom";
 import queryString from "query-string";
 import {getMovies} from "../../services/movies.service";
-import {fetchMovies} from "../../redux/actions/actions";
+import {fetchMovies} from "../../redux/actions";
 
 export default function Paging() {
     const location = useLocation();

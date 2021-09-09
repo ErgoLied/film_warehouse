@@ -5,7 +5,6 @@ export default function MoviesPage() {
   return (
     <div>
         <Header/>
-        <hr/>
         <MoviesList/>
     </div>
   );
