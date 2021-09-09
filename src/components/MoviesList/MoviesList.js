@@ -4,6 +4,9 @@ import MovieInfo from "../MovieInfo/MovieInfo";
 import {getGenres} from "../../services/genres.service";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchGenres, fetchMovies} from "../../redux/actions";
+import {fetchPages} from "../../redux/actions/actions";
+import Paging from "../Paging/Paging";
+
 
 
 export default function MoviesList() {
@@ -16,19 +19,23 @@ export default function MoviesList() {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        getMovies().then(({data}) => {
+        getMovies(`/discover/movie`).then(({data}) => {
             console.log(data);
-            dispatch(fetchMovies(data.results))
+            dispatch(fetchPages(data.total_pages));
+            dispatch(fetchMovies(data.results));
         });
         getGenres().then(({data}) => {
             console.log(data.genres);
-            dispatch(fetchGenres(data.genres))
+            dispatch(fetchGenres(data.genres));
         })
     }, [dispatch])
 
-  return (
-    <div className={'wrapper movie-list'}>
-        {movies.map(value => <MovieInfo key={value.id} movie={value}/>)}
-    </div>
-  );
+    return (
+        <div>
+            <div className={'wrapper movie-list'}>
+                {movies.map(value => <MovieInfo key={value.id} movie={value}/>)}
+            </div>
+            <Paging/>
+        </div>
+    );
 }

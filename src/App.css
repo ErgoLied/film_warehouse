@@ -11,6 +11,9 @@ h4{
     display: flex;
     flex-wrap: wrap;
 }
+.pagination{
+    margin: 0 100px;
+}
 .movie-list{
     justify-content: center;
     column-gap: 20px;

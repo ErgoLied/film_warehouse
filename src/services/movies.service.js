@@ -1,5 +1,5 @@
 import {instance} from "./config";
 
-const getMovies = async () => await instance('/discover/movie');
+const getMovies = async (url) => await instance(url);
 
 export {getMovies}
