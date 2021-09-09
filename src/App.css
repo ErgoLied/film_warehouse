@@ -1,0 +1,23 @@
+h4{
+    margin: 5px 0;
+}
+.genre_badge>span{
+    margin: 5px 5px 5px 0;
+    background-color: silver;
+    border-radius: 3px;
+}
+
+.wrapper{
+    display: flex;
+    flex-wrap: wrap;
+}
+.movie-list{
+    justify-content: center;
+    column-gap: 20px;
+    margin: 0 100px;
+}
+.movie-list>div{
+    display: flex;
+    flex-direction: column;
+    width: 18%;
+}
